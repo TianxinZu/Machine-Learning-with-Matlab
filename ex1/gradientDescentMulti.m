@@ -18,6 +18,17 @@ for iter = 1:num_iters
     %
 
 
+    tempTheta = zeros(size(theta));
+    for i = 1 : size(theta, 1)
+        for j = 1 : m
+            tempTheta(i, 1) = tempTheta(i, 1) + (theta' * (X(j, :))' - y(j, 1)) * X(j, i);
+        end
+    end
+    
+    tempTheta = tempTheta .* alpha;
+    tempTheta = tempTheta ./ m;
+    theta = theta - tempTheta;
+    
 
 
 
